@@ -1,6 +1,8 @@
 # GridPane Server Module for WHMCS
 Tis project was built to connect WHMCS with GridPane.com's API service so we can create sites within WHMCS.
 
+***Discliamer: First this is not quite ready for production use so use at your own risk.***
+
 **Install:**
 1. Download this repo.
 2. Unzip to your local machine.
@@ -19,3 +21,5 @@ Nothing fancy is required to activate the module, just upload it and it's ready 
 
 **Reporting issues**
 1. Go to the GitHub repo and report your issues: https://github.com/StouteWebSolutions/whmcs-gridpane/issues
+
+
