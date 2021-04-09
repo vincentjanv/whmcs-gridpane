@@ -12,7 +12,7 @@ function gridpane_MetaData()
 {
 	return array(
 		'DisplayName'		=> 'Gridpane',
-		'APIVersion'		=> '1.0',
+		'APIVersion'		=> '1.0.1',
 		'RequiresServer'	=> true,
 		'DefaultNonSSLPort' => '1111', // Default Non-SSL Connection Port
         'DefaultSSLPort' => '1112', // Default SSL Connection Port
@@ -44,7 +44,7 @@ function gridpane_ConfigOptions()
 		// WAF
 		'Web Application Firewall (WAF)'	=> array(
 			'Type'			=> 'radio',
-			'Options'		=> '6G,7G,modsec',
+			'Options'		=> '6G,7G,modsec,none',
 			'Description'	=> 'Select a WAF.',
 			'Default'		=> '7G'
 		),
