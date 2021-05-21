@@ -238,7 +238,7 @@ function gridpane_TestConnection(array $params)
         $response_array = testConnection($params['serveraccesshash']);
 
         $success = (is_array($response_array) && (count($response_array) > 1));
-        $errorMsg = $response_array;
+        $errorMsg = '';
     } catch (Exception $e) {
         // Record the error in WHMCS's module log.
         logModuleCall(
