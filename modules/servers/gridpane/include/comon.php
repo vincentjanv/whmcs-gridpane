@@ -21,6 +21,7 @@ function testConnection($apiKey)
 {
 
     $curl = curl_init();
+    $response="";
     try {
         curl_setopt_array($curl, array(
             CURLOPT_URL => "https://my.gridpane.com/oauth/api/v1/site",
