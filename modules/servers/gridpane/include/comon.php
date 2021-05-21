@@ -17,9 +17,8 @@ function jtoa($p) {
 function testConnection($apiKey) {
   $curl = curl_init();
 
-  return $apiKey;
   curl_setopt_array($curl, array(
-    CURLOPT_URL => "https://my.gridpane.com/oauth/api/v1/site?apikey=".$apiKey,
+    CURLOPT_URL => "https://my.gridpane.com/oauth/api/v1/site",
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => "",
     CURLOPT_MAXREDIRS => 10,
