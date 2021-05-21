@@ -14,7 +14,7 @@ function site_url($p)
 
 function jtoa($p)
 {
-    return json_decode($p);
+    return json_decode($p,true);
 }
 
 function testConnection($apiKey)
@@ -42,12 +42,10 @@ function testConnection($apiKey)
         $isError = true;
         $response = curl_error($curl);
         curl_close($curl);
-      return $response;
+        return $response;
     }
-    if (!$isError) {
-        curl_close($curl);
-        return jtoa($response);
-    }
+    return jtoa($response);
+    
 }
 
 function get_site_list()
