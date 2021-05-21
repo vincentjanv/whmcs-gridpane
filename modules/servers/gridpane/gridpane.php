@@ -26,7 +26,10 @@ function gridpane_MetaData()
 // Service Options
 function gridpane_ConfigOptions()
 {
+      
+
 	return array(
+	
 		// PHP Version
 		'PHP Version'		=> array(
 			'Type'			=> 'radio',
@@ -68,7 +71,14 @@ function gridpane_ConfigOptions()
 			'Options'		=> 'dynamic,static,ondemand',
 			'Description'	=> 'Configure your PHP-FPM.',
 			'Default'		=> 'static'
-		)
+		),
+		"apikey" => [
+            "FriendlyName" => "Gridpane API key",
+            "Type" => "text", # Text Box
+            "Size" => "50", # Defines the Field Width
+            "Description" => "Textbox",
+            "Default" => "xxx",
+        ],
 		// 	
 	);
 }
@@ -95,6 +105,8 @@ function gridpane_CreateAccount(array $params)
 	    $smtp = $params['configoption4'];
 	    $dns_management = $params['configoption5'];
 	    $pm = $params['configoption6'];
+		$apiKey = $params['configoption7'];
+
 	    if(!empty($url) && !empty($server_id)) {
 	      $data = array();
 	      $s_user = array();
@@ -121,6 +133,8 @@ function gridpane_CreateAccount(array $params)
 	      $data['waf'] = $waf;
 	      $data['smtp'] = $smtp;
 	      $data['dns_management'] = $dns_management;
+		  $data['apikey'] = $apiKey;
+
 	      // $wpusers = json_decode($c->customfields11);
 	      // if(!empty($wpusers)) {
 	      //   $data['wp_users'] = $wpusers;
@@ -180,6 +194,7 @@ function gridpane_TerminateAccount(array $params)
     return 'success';
 }
 
+
 function gridpane_ClientArea($vars) {
     // Determine the requested action and set service call parameters based on
     // the action.
@@ -235,7 +250,7 @@ function gridpane_TestConnection(array $params)
 		$response_array = get_site_list();
 
         $success = (is_array($response_array) && (count($response_array)>1));
-        $errorMsg = '';
+        $errorMsg = json_encode($params);
     } catch (Exception $e) {
         // Record the error in WHMCS's module log.
         logModuleCall(

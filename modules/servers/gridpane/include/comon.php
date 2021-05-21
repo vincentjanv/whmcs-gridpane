@@ -97,7 +97,7 @@ function create_site($data) {
         CURLOPT_CUSTOMREQUEST => "POST",
         CURLOPT_POSTFIELDS => $data,
         CURLOPT_HTTPHEADER => array(
-          "Authorization: Bearer ".TOKEN
+          "Authorization: Bearer ".$data['apiKey']
         ),
     ));
     $gridpane_responce = curl_exec($curl);
