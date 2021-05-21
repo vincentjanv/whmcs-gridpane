@@ -56,6 +56,10 @@ function get_site_list() {
 
     $response = curl_exec($curl);
 
+    if (!$response)
+    {
+      return curl_error($curl);
+    }
     curl_close($curl);
     return jtoa($response);
 }
