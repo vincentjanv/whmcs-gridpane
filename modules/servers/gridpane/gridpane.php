@@ -231,9 +231,10 @@ function gridpane_ClientArea($vars) {
 function gridpane_TestConnection(array $params)
 {
     try {
-        // Call the service's connection test function.
 
-        $success = true;
+		$response_array = get_site_list();
+
+        $success = (is_array($response_array) && (count($response_array)>1));
         $errorMsg = '';
     } catch (Exception $e) {
         // Record the error in WHMCS's module log.
