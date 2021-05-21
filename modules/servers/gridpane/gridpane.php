@@ -71,14 +71,7 @@ function gridpane_ConfigOptions()
 			'Options'		=> 'dynamic,static,ondemand',
 			'Description'	=> 'Configure your PHP-FPM.',
 			'Default'		=> 'static'
-		),
-		"apikey" => [
-            "FriendlyName" => "Gridpane API key",
-            "Type" => "text", # Text Box
-            "Size" => "50", # Defines the Field Width
-            "Description" => "Textbox",
-            "Default" => "xxx",
-        ],
+		)
 		// 	
 	);
 }
@@ -105,7 +98,6 @@ function gridpane_CreateAccount(array $params)
 	    $smtp = $params['configoption4'];
 	    $dns_management = $params['configoption5'];
 	    $pm = $params['configoption6'];
-		$apiKey = $params['configoption7'];
 
 	    if(!empty($url) && !empty($server_id)) {
 	      $data = array();
@@ -133,7 +125,6 @@ function gridpane_CreateAccount(array $params)
 	      $data['waf'] = $waf;
 	      $data['smtp'] = $smtp;
 	      $data['dns_management'] = $dns_management;
-		  $data['apikey'] = $apiKey;
 
 	      // $wpusers = json_decode($c->customfields11);
 	      // if(!empty($wpusers)) {
