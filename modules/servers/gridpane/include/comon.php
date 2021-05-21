@@ -14,6 +14,29 @@ function jtoa($p) {
     return json_decode($p);
 }
 
+function testConnection($apiKey) {
+  $curl = curl_init();
+
+  curl_setopt_array($curl, array(
+    CURLOPT_URL => "https://my.gridpane.com/oauth/api/v1/site?apikey=".$apiKey,
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => "",
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 0,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => "GET",
+    CURLOPT_HTTPHEADER => array(
+      "Authorization: Bearer ".$apiKey
+    ),
+  ));
+
+  $response = curl_exec($curl);
+
+  curl_close($curl);
+  return jtoa($response);
+}
+
 function get_site_list() {
     $curl = curl_init();
 

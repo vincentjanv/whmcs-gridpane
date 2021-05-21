@@ -238,10 +238,10 @@ function gridpane_TestConnection(array $params)
 {
     try {
 
-		$response_array = get_site_list();
+		$response_array = testConnection($params['serveraccesshash']);
 
         $success = (is_array($response_array) && (count($response_array)>1));
-        $errorMsg = json_encode($params);
+        $errorMsg = $response_array;
     } catch (Exception $e) {
         // Record the error in WHMCS's module log.
         logModuleCall(
